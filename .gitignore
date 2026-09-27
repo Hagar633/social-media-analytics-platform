@@ -1,0 +1,14 @@
+# Python & Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# dbt Temp Files & Target
+dbt_project/target/
+dbt_project/dbt_packages/
+dbt_project/logs/
+
+# Large Datasets & Docker Logs
+datasets/*.json
+logs/
+.env

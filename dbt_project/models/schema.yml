@@ -1,0 +1,47 @@
+version: 2
+
+# 📥 SOURCES (Tables loaded into PostgreSQL by PySpark)
+sources:
+  - name: public
+    database: warehouse
+    tables:
+      - name: stg_users
+        description: "User records"
+        columns:
+          - name: user_id
+            data_tests:
+              - unique
+              - not_null
+
+      - name: stg_posts
+        description: "Post records"
+        columns:
+          - name: post_id
+            data_tests:
+              - unique
+              - not_null
+
+      - name: stg_post_tags
+        description: "Post tags mapping table"
+        columns:
+          - name: post_id
+            data_tests:
+              - not_null
+
+      - name: stg_comments
+        description: "Comments staging table"
+        columns:
+          - name: post_id
+            data_tests:
+              - not_null
+
+# 📊 MODELS (Data Marts built by dbt)
+models:
+  - name: user_engagement
+    description: "User engagement analytics data mart"
+  - name: content_performance
+    description: "Content performance analytics data mart"
+  - name: tag_analysis
+    description: "Hashtag & tag trends data mart"
+  - name: location_analysis
+    description: "Geographic location activity data mart"

@@ -1,0 +1,17 @@
+config:
+  debug: false
+  fail_fast: true
+postgres_dw:
+  target: default
+  outputs:
+    default:
+      type: postgres
+      database: warehouse
+      schema: public
+      host: postgres_dw
+      port: 5432
+      threads: 1
+      user: warehouse
+      password: warehouse
+      timezone: "Africa/Cairo"
+
